@@ -9,6 +9,9 @@ The project is divided into two main parts:
 -   **frontend/**: A React.js "Good Morning" page with a registration form and volunteer list.
 -   **backend/**: A Node.js/Express REST API connecting to a local MySQL database.
 
+## 🚀 Live Demo
+**[View Live Application](https://tannmann-foundation-assignment-reac.vercel.app/)**
+
 ## Features
 
 -   **Frontend**:
