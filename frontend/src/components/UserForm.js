@@ -49,7 +49,7 @@ const UserForm = ({ onSuccess }) => {
     setMessage({ text: '', type: '' });
 
     try {
-      const response = await axios.post(`${API_URL}/users`, formData);
+      await axios.post(`${API_URL}/users`, formData);
       setMessage({ text: 'Details submitted successfully!', type: 'success' });
       setFormData({ name: '', phone: '', email: '' });
       onSuccess();
