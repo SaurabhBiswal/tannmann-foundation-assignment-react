@@ -1,17 +1,21 @@
 const mysql = require('mysql2/promise');
 require('dotenv').config();
 
+const isCloud = process.env.DB_HOST && process.env.DB_HOST !== 'localhost';
+
 const pool = mysql.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
   password: process.env.DB_PASSWORD || 'Punpun@2002',
   database: process.env.DB_NAME || 'tannmann_foundation',
+  port: process.env.DB_PORT || 3306,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
-  ssl: {
-    rejectUnauthorized: false
-  }
+  ssl: isCloud ? {
+    minVersion: 'TLSv1.2',
+    rejectUnauthorized: true
+  } : false
 });
 
 // Test connection on startup
