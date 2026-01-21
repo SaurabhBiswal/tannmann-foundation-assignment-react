@@ -14,7 +14,6 @@ const UsersList = ({ refresh }) => {
   const fetchUsers = async () => {
     try {
       const response = await axios.get(`${API_URL}/users`);
-      // Handle different response formats similarly to how the original App.js did
       const data = response.data;
       if (Array.isArray(data)) {
         setUsers(data);

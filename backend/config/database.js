@@ -18,7 +18,6 @@ const pool = mysql.createPool({
   } : false
 });
 
-// Test connection on startup
 pool.getConnection()
   .then(connection => {
     console.log('✅ Connected to MySQL database successfully!');

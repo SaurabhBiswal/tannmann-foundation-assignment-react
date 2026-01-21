@@ -77,7 +77,7 @@
   border-top: 1px solid var(--glass-border);
 }
 
-/* Responsive Design */
+
 @media (max-width: 960px) {
   .main-content {
     grid-template-columns: 1fr;

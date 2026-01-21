@@ -1,6 +1,6 @@
 const mysql = require('mysql2');
 
-// Create connection
+
 const connection = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -8,7 +8,7 @@ const connection = mysql.createConnection({
   database: 'tannmann_foundation'
 });
 
-// Test connection
+
 connection.connect((err) => {
   if (err) {
     console.error('❌ Connection failed:', err.message);
@@ -21,7 +21,7 @@ connection.connect((err) => {
   
   console.log('✅ Connected to MySQL!');
   
-  // Test query
+
   connection.query('SELECT * FROM users', (err, results) => {
     if (err) {
       console.error('Query error:', err.message);

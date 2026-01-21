@@ -1,19 +1,19 @@
 const pool = require('../config/database');
 
 const userController = {
-  // Create a new user
+ 
   async createUser(req, res) {
     try {
       const { name, phone, email } = req.body;
       
-      // Validate input
+      
       if (!name || !phone || !email) {
         return res.status(400).json({ 
           message: 'Name, phone, and email are required' 
         });
       }
       
-      // Check if email already exists
+      
       const existingUser = await pool.query(
         'SELECT * FROM users WHERE email = $1',
         [email]
@@ -25,7 +25,7 @@ const userController = {
         });
       }
       
-      // Insert new user
+      
       const newUser = await pool.query(
         `INSERT INTO users (name, phone, email) 
          VALUES ($1, $2, $3) 
@@ -47,7 +47,7 @@ const userController = {
     }
   },
   
-  // Get all users
+  
   async getAllUsers(req, res) {
     try {
       const allUsers = await pool.query(

@@ -5,11 +5,11 @@ const db = require('./config/database');
 
 const app = express();
 
-// Middleware
+
 app.use(cors());
 app.use(express.json());
 
-// Root route
+
 app.get('/', (req, res) => {
   res.json({
     message: 'Tann Mann Foundation API',
@@ -21,12 +21,12 @@ app.get('/', (req, res) => {
   });
 });
 
-// Register new user
+
 app.post('/api/users', async (req, res) => {
   try {
     const { name, phone, email } = req.body;
     
-    // Simple validation
+    
     if (!name || !phone || !email) {
       return res.status(400).json({ 
         success: false, 
@@ -34,7 +34,7 @@ app.post('/api/users', async (req, res) => {
       });
     }
     
-    // Insert into database
+    
     const [result] = await db.execute(
       'INSERT INTO users (name, phone, email) VALUES (?, ?, ?)',
       [name, phone, email]
@@ -63,7 +63,7 @@ app.post('/api/users', async (req, res) => {
   }
 });
 
-// Get all users
+
 app.get('/api/users', async (req, res) => {
   try {
     const [users] = await db.execute(
@@ -85,7 +85,7 @@ app.get('/api/users', async (req, res) => {
   }
 });
 
-// Health check
+
 app.get('/api/health', async (req, res) => {
   try {
     await db.execute('SELECT 1');

@@ -36,7 +36,6 @@ code {
     monospace;
 }
 
-/* Scrollbar Styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
